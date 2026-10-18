@@ -10,6 +10,7 @@ public class Main {
         System.out.println("2. CD future value calculator");
         System.out.println("3. Annuity calculator");
         System.out.println("Enter 1, 2, or 3:");
+
         int calculatorChoice = scanner.nextInt();
         if (calculatorChoice == 1) {
             System.out.println("Enter your loan amount:");
@@ -25,6 +26,21 @@ public class Main {
             double totalInterest = (monthlyPayment * numberOfPayments) - principal;
             System.out.println("Monthly payment: $" + monthlyPayment);
             System.out.println("Total interest paid: $" + totalInterest);
+
+        } else if (calculatorChoice == 2) {
+            System.out.println("Enter the initial deposit:");
+                double principal = scanner.nextDouble();
+            System.out.println("Enter the annual interest rate:");
+            double annualInterestRate = scanner.nextDouble();
+            System.out.println("Enter the number of years:");
+            int years = scanner.nextInt();
+            double dailyRate = annualInterestRate / 365;
+            double growthFactor = Math.pow(1 + dailyRate, 365 * years);
+            double futureValue = principal * growthFactor;
+            double interestEarned = futureValue - principal;
+
+            System.out.println("Future value: $" + futureValue);
+            System.out.println("Total interest earned: $" + interestEarned);
+            }
         }
     }
-}
