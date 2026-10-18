@@ -41,6 +41,19 @@ public class Main {
 
             System.out.println("Future value: $" + futureValue);
             System.out.println("Total interest earned: $" + interestEarned);
+
+        } else if (calculatorChoice == 3) {
+            System.out.println("Enter the monthly payout amount:");
+            double monthlyPayout = scanner.nextDouble();
+            System.out.println("Enter the annual interest rate:");
+            double annualInterestRate = scanner.nextDouble();
+            System.out.println("Enter the number of years for the payout:");
+            int payoutYears = scanner.nextInt();
+            double monthlyRate = annualInterestRate / 12 / 100;
+            int numberOfPayments = payoutYears * 12;
+            double discountFactor = Math.pow(1 + monthlyRate, -numberOfPayments);
+            double presentValue = monthlyPayout * ((1 - discountFactor) / monthlyRate);
+            System.out.println("Present value of the annuity: $" + presentValue);
+        }
             }
         }
-    }
